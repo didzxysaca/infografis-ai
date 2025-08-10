@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Etika Berinternet - Infografis Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'gradient-y': 'gradient-y 15s ease infinite',
+                        'gradient-xy': 'gradient-xy 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s infinite',
+                    },
+                    keyframes: {
+                        'gradient-y': {
+                            '0%, 100%': {
+                                'background-size': '400% 400%',
+                                'background-position': 'center top'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'center center'
+                            }
+                        },
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            }
+                        },
+                        'gradient-xy': {
+                            '0%, 100%': {
+                                'background-size': '400% 400%',
+                                'background-position': 'left center'
+                            },
+                            '25%': {
+                                'background-size': '400% 400%',
+                                'background-position': 'left top'
+                            },
+                            '50%': {
+                                'background-size': '400% 400%',
+                                'background-position': 'right center'
+                            },
+                            '75%': {
+                                'background-size': '400% 400%',
+                                'background-position': 'right bottom'
+                            }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'glow': {
+                            'from': { 'box-shadow': '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            'to': { 'box-shadow': '0 0 30px rgba(147, 51, 234, 0.8)' }
+                        },
+                        'shimmer': {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .glass-card-hover:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .shimmer-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shimmer-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            padding: 2px;
+            border-radius: 20px;
+        }
+
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.3), 
+                       0 0 40px rgba(102, 126, 234, 0.1), 
+                       0 0 80px rgba(102, 126, 234, 0.05);
+        }
+
+        body {
+            background: linear-gradient(-45deg, #0F0C29, #24243e, #302B63, #2C5364);
+            background-size: 400% 400%;
+            animation: gradient-xy 15s ease infinite;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen relative">
+    <!-- Floating Background Shapes -->
+    <div class="floating-shapes">
+        <div class="shape w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+        <div class="shape w-24 h-24 bg-gradient-to-r from-pink-500 to-red-500 rounded-full"></div>
+        <div class="shape w-40 h-40 bg-gradient-to-r from-green-500 to-blue-500 rounded-full"></div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-gray-800 z-50">
+        <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-300 ease-out"></div>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 relative z-10">
+        <!-- Header -->
+        <header class="glass-card glass-card-hover rounded-3xl p-8 mb-12 text-center shimmer-effect neon-glow">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 animate-gradient-x">
+                🤖
+            </h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+                AI & Etika Berinternet
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 animate-pulse-slow">
+                Panduan Komprehensif Teknologi Digital Modern
+            </p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                <div class="w-2 h-2 bg-purple-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-pink-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+            </div>
+        </header>
+
+        <!-- Sejarah AI -->
+        <section class="glass-card glass-card-hover rounded-3xl p-8 mb-12 shimmer-effect">
+            <h2 class="text-4xl md:text-7xl font-bold mb-2 text-center animate-gradient-x">
+                📚
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 text-center gradient-text">
+                Sejarah Perkembangan AI
+            </h2>
+            <div class="relative">
+                <div class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 rounded-full"></div>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-blue-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-blue-400 mb-2">1943</div>
+                            <p class="text-gray-300"><strong class="text-white">McCulloch-Pitts Neuron:</strong> Model matematis pertama neuron buatan yang menjadi dasar neural network.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-purple-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-purple-400 mb-2">1950</div>
+                            <p class="text-gray-300"><strong class="text-white">Turing Test:</strong> Alan Turing mengusulkan tes untuk menentukan apakah mesin dapat berpikir.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-pink-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-pink-400 mb-2">1956</div>
+                            <p class="text-gray-300"><strong class="text-white">Dartmouth Conference:</strong> Istilah "Artificial Intelligence" pertama kali digunakan secara resmi.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-green-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-green-400 mb-2">1997</div>
+                            <p class="text-gray-300"><strong class="text-white">Deep Blue vs Kasparov:</strong> Komputer IBM mengalahkan juara catur dunia.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-yellow-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-yellow-400 mb-2">2011</div>
+                            <p class="text-gray-300"><strong class="text-white">IBM Watson:</strong> Memenangkan game show Jeopardy! melawan manusia.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-red-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-red-400 mb-2">2016</div>
+                            <p class="text-gray-300"><strong class="text-white">AlphaGo:</strong> Google DeepMind mengalahkan juara Go dunia Lee Sedol.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-6 transform hover:scale-105 transition-all duration-300">
+                        <div class="w-6 h-6 bg-cyan-500 rounded-full flex-shrink-0 mt-2 animate-pulse shadow-lg"></div>
+                        <div class="glass-card rounded-2xl p-6 flex-1 hover:bg-white/10 transition-all duration-300">
+                            <div class="text-2xl font-bold text-cyan-400 mb-2">2022-2025</div>
+                            <p class="text-gray-300"><strong class="text-white">Era ChatGPT:</strong> Revolusi AI generatif dan Large Language Models (LLM).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jenis AI -->
+        <section class="glass-card glass-card-hover rounded-3xl p-8 mb-12 shimmer-effect">
+            <h2 class="text-4xl font-bold mb-2 text-center animate-gradient-x">
+                🔍
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 text-center gradient-text">
+                Jenis-Jenis AI
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-blue-500/30 hover:border-blue-400/50 animate-float">
+                    <div class="text-6xl mb-4 animate-bounce-slow">🤖</div>
+                    <h3 class="text-2xl font-bold mb-3 text-blue-400">Narrow AI (ANI)</h3>
+                    <p class="text-gray-300 text-sm">AI yang dirancang untuk tugas spesifik seperti pengenalan wajah, rekomendasi produk, atau asisten virtual.</p>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 hover:border-purple-400/50 animate-float" style="animation-delay: 0.5s">
+                    <div class="text-6xl mb-4 animate-bounce-slow">🧠</div>
+                    <h3 class="text-2xl font-bold mb-3 text-purple-400">General AI (AGI)</h3>
+                    <p class="text-gray-300 text-sm">AI yang dapat melakukan berbagai tugas kognitif seperti manusia. Masih dalam tahap pengembangan.</p>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-pink-500/20 to-red-500/20 border border-pink-500/30 hover:border-pink-400/50 animate-float" style="animation-delay: 1s">
+                    <div class="text-6xl mb-4 animate-bounce-slow">⚡</div>
+                    <h3 class="text-2xl font-bold mb-3 text-pink-400">Super AI (ASI)</h3>
+                    <p class="text-gray-300 text-sm">AI yang melampaui kemampuan manusia dalam semua aspek. Masih berupa konsep teoretis.</p>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-green-500/20 to-blue-500/20 border border-green-500/30 hover:border-green-400/50 animate-float" style="animation-delay: 1.5s">
+                    <div class="text-6xl mb-4 animate-bounce-slow">🎯</div>
+                    <h3 class="text-2xl font-bold mb-3 text-green-400">Machine Learning</h3>
+                    <p class="text-gray-300 text-sm">Subset AI yang memungkinkan sistem belajar dari data tanpa pemrograman eksplisit.</p>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 hover:border-yellow-400/50 animate-float" style="animation-delay: 2s">
+                    <div class="text-6xl mb-4 animate-bounce-slow">🕸️</div>
+                    <h3 class="text-2xl font-bold mb-3 text-yellow-400">Deep Learning</h3>
+                    <p class="text-gray-300 text-sm">Subset machine learning yang menggunakan neural network berlapis untuk memproses data kompleks.</p>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 hover:border-cyan-400/50 animate-float" style="animation-delay: 2.5s">
+                    <div class="text-6xl mb-4 animate-bounce-slow">💭</div>
+                    <h3 class="text-2xl font-bold mb-3 text-cyan-400">NLP</h3>
+                    <p class="text-gray-300 text-sm">AI yang fokus pada pemahaman dan pemrosesan bahasa manusia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dampak AI -->
+        <section class="glass-card glass-card-hover rounded-3xl p-8 mb-12 shimmer-effect">
+            <h2 class="text-4xl font-bold mb-2 text-center animate-gradient-x">
+                ⚖️
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 text-center gradient-text">
+                Dampak Positif & Negatif AI
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 hover:border-green-400/50 hover:scale-105 transition-all duration-300">
+                    <h3 class="text-3xl font-bold mb-6 text-green-400 text-center">✅ Dampak Positif</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Otomatisasi tugas berulang dan berbahaya</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Diagnosis medis yang lebih akurat</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Personalisasi pendidikan dan layanan</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Efisiensi energi dan sumber daya</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Aksesibilitas untuk penyandang disabilitas</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Penelitian ilmiah yang dipercepat</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-2xl p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border border-red-500/30 hover:border-red-400/50 hover:scale-105 transition-all duration-300">
+                    <h3 class="text-3xl font-bold mb-6 text-red-400 text-center">⚠️ Dampak Negatif</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Pengangguran teknologi</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Bias dan diskriminasi algoritmik</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Pelanggaran privasi data</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Deepfakes dan misinformasi</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Ketergantungan berlebihan pada teknologi</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Kesenjangan digital yang melebar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etika Berinternet -->
+        <section class="glass-card glass-card-hover rounded-3xl p-8 mb-12 shimmer-effect">
+            <h2 class="text-4xl font-bold mb-2 text-center animate-gradient-x">
+                🌐
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 text-center gradient-text">
+                Etika Berinternet
+            </h2>
+            <p class="text-center text-xl text-gray-300 mb-8 animate-pulse-slow">
+                Prinsip-prinsip dasar berperilaku etis dalam dunia digital
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-500/30 hover:border-blue-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">🤝</div>
+                    <h4 class="text-lg font-bold text-blue-400">Hormati Orang Lain</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30 hover:border-purple-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">🔒</div>
+                    <h4 class="text-lg font-bold text-purple-400">Jaga Privasi</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 hover:border-green-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">✅</div>
+                    <h4 class="text-lg font-bold text-green-400">Verifikasi Informasi</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 hover:border-yellow-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">⚖️</div>
+                    <h4 class="text-lg font-bold text-yellow-400">Patuhi Hukum</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-red-500/20 to-pink-500/20 border border-red-500/30 hover:border-red-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">💬</div>
+                    <h4 class="text-lg font-bold text-red-400">Komunikasi Sopan</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-indigo-500/20 to-blue-500/20 border border-indigo-500/30 hover:border-indigo-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">🛡️</div>
+                    <h4 class="text-lg font-bold text-indigo-400">Lindungi Diri</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border border-teal-500/30 hover:border-teal-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">📚</div>
+                    <h4 class="text-lg font-bold text-teal-400">Hargai Kekayaan Intelektual</h4>
+                </div>
+                <div class="glass-card glass-card-hover rounded-2xl p-6 text-center bg-gradient-to-br from-violet-500/20 to-purple-500/20 border border-violet-500/30 hover:border-violet-400/50 transform hover:scale-110 transition-all duration-300">
+                    <div class="text-5xl mb-4 animate-bounce-slow">🌍</div>
+                    <h4 class="text-lg font-bold text-violet-400">Tanggung Jawab Digital</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menerapkan vs Mengabaikan Etika -->
+        <section class="glass-card glass-card-hover rounded-3xl p-8 mb-12 shimmer-effect">
+            <h2 class="text-4xl md:text-7xl font-bold mb-2 text-center animate-gradient-x">
+                📊
+            </h2>
+            <h2 class="text-4xl font-bold mb-8 text-center gradient-text">
+                Menerapkan vs Mengabaikan Etika Berinternet
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="glass-card rounded-2xl p-6 bg-gradient-to-br from-green-500/20 to-emerald-500/20 border border-green-500/30 hover:border-green-400/50 hover:scale-105 transition-all duration-300">
+                    <h3 class="text-3xl font-bold mb-6 text-green-400 text-center">✅ Menerapkan Etika Digital</h3>
+                    <h4 class="text-xl font-semibold mb-4 text-green-300">Dampak Positif:</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Membangun reputasi digital yang baik</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Menciptakan lingkungan online yang aman</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Meningkatkan kepercayaan dan kredibilitas</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Melindungi privasi pribadi dan orang lain</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Mendorong dialog konstruktif</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-green-400 text-xl">✓</span>
+                            <span class="text-gray-300">Mencegah cyberbullying dan hate speech</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-2xl p-6 bg-gradient-to-br from-red-500/20 to-pink-500/20 border border-red-500/30 hover:border-red-400/50 hover:scale-105 transition-all duration-300">
+                    <h3 class="text-3xl font-bold mb-6 text-red-400 text-center">❌ Mengabaikan Etika Digital</h3>
+                    <h4 class="text-xl font-semibold mb-4 text-red-300">Dampak Negatif:</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Reputasi digital yang buruk</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Konsekuensi hukum dan sanksi</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Kerugian finansial dan karier</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Merusak hubungan sosial</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Menjadi korban kejahatan siber</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-3 rounded-lg hover:bg-white/5 transition-all duration-300">
+                            <span class="text-red-400 text-xl">⚠</span>
+                            <span class="text-gray-300">Menciptakan lingkungan online yang toksik</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="glass-card glass-card-hover rounded-3xl p-8 text-center shimmer-effect neon-glow">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    Dibuat Oleh
+                </h3>
+                <div class="text-3xl font-bold text-white mb-2">
+                    M. Amon Jadid
+                </div>
+                <div class="text-xl text-gray-300 mb-2">
+                    (18)
+                </div>
+                <div class="text-xl text-gray-300 mb-4">
+                    X TPM 2
+                </div>
+                <div class="flex justify-center space-x-2 mb-4">
+                    <div class="w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                    <div class="w-3 h-3 bg-purple-500 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                    <div class="w-3 h-3 bg-pink-500 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-6">
+                <p class="text-gray-400 mb-2">© 2025 - Infografis AI & Etika Berinternet</p>
+                <p class="text-sm text-gray-500">Dibuat untuk edukasi dan awareness teknologi digital</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('progress-bar').style.width = scrollPercent + '%';
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        document.querySelectorAll('.glass-card').forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`;
+            observer.observe(card);
+        });
+
+        // Smooth scroll enhancement
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>
